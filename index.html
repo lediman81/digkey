@@ -13,8 +13,8 @@
     </style>
 </head>
 <body>
-    <h2>Enter the 4-Digit Code to Unlock the Lab</h2>
-    <input type="text" id="inputField" maxlength="4" readonly>
+    <h2>Enter the 6-Digit Code to Unlock the Secret Lab</h2>
+    <input type="text" id="inputField" maxlength="6" readonly>
     <div class="keypad">
         <button class="key" onclick="enterDigit(1)">1</button>
         <button class="key" onclick="enterDigit(2)">2</button>
@@ -28,11 +28,15 @@
         <button class="key" onclick="clearInput()">C</button>
         <button class="key" onclick="enterDigit(0)">0</button>
         <button class="key" onclick="checkCode()">✔</button>
+        <button class="key" onclick="enterDigit('A')">A</button>
+        <button class="key" onclick="enterDigit('B')">B</button>
+        <button class="key" onclick="enterDigit('C')">C</button>
+        <button class="key" onclick="enterDigit('D')">D</button>
     </div>
     <p id="message"></p>
     
     <script>
-        const correctCodes = ["6927", "7043"]; // List of valid codes
+        const correctCodes = ["6213BC", "10CA03"]; // List of valid codes
         
         function enterDigit(digit) {
             let inputField = document.getElementById("inputField");
