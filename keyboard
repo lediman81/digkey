@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Keypad Escape</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        .keypad { display: grid; grid-template-columns: repeat(3, 60px); gap: 10px; justify-content: center; }
+        .key { width: 60px; height: 60px; font-size: 24px; cursor: pointer; }
+        #inputField { font-size: 24px; text-align: center; width: 180px; margin-bottom: 10px; }
+        #message { font-size: 20px; margin-top: 10px; color: green; }
+    </style>
+</head>
+<body>
+    <h2>Enter the 4-Digit Code to Unlock the Lab</h2>
+    <input type="text" id="inputField" maxlength="4" readonly>
+    <div class="keypad">
+        <button class="key" onclick="enterDigit(1)">1</button>
+        <button class="key" onclick="enterDigit(2)">2</button>
+        <button class="key" onclick="enterDigit(3)">3</button>
+        <button class="key" onclick="enterDigit(4)">4</button>
+        <button class="key" onclick="enterDigit(5)">5</button>
+        <button class="key" onclick="enterDigit(6)">6</button>
+        <button class="key" onclick="enterDigit(7)">7</button>
+        <button class="key" onclick="enterDigit(8)">8</button>
+        <button class="key" onclick="enterDigit(9)">9</button>
+        <button class="key" onclick="clearInput()">C</button>
+        <button class="key" onclick="enterDigit(0)">0</button>
+        <button class="key" onclick="checkCode()">✔</button>
+    </div>
+    <p id="message"></p>
+    
+    <script>
+        const correctCodes = ["6927", "7043"]; // List of valid codes
+        
+        function enterDigit(digit) {
+            let inputField = document.getElementById("inputField");
+            if (inputField.value.length < 4) {
+                inputField.value += digit;
+            }
+        }
+        
+        function clearInput() {
+            document.getElementById("inputField").value = "";
+            document.getElementById("message").textContent = "";
+        }
+        
+        function checkCode() {
+            let inputField = document.getElementById("inputField").value;
+            let message = document.getElementById("message");
+            
+            if (correctCodes.includes(inputField)) {
+                message.textContent = "✅ Access Granted! The lab is unlocked!";
+                message.style.color = "green";
+            } else {
+                message.textContent = "❌ Incorrect Code. Try Again!";
+                message.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
