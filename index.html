@@ -40,7 +40,7 @@
         
         function enterDigit(digit) {
             let inputField = document.getElementById("inputField");
-            if (inputField.value.length < 4) {
+            if (inputField.value.length < 6) {
                 inputField.value += digit;
             }
         }
@@ -55,10 +55,10 @@
             let message = document.getElementById("message");
             
             if (correctCodes.includes(inputField)) {
-                message.textContent = "✅ Access Granted! The lab is unlocked!";
+                message.textContent = "✅ Access Granted! The Secret Lab is up ahead!";
                 message.style.color = "green";
             } else {
-                message.textContent = "❌ Incorrect Code. Try Again!";
+                message.textContent = "❌ Incorrect Code. The Secret Lab will enter autodestruction mode now!";
                 message.style.color = "red";
             }
         }
