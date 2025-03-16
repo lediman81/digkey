@@ -13,30 +13,34 @@
     </style>
 </head>
 <body>
-    <h2>Enter the 4-Digit Code to Unlock the Lab</h2>
-    <input type="text" id="inputField" maxlength="4" readonly>
+    <h2>Enter the 6-Character Code to Unlock the Lab</h2>
+    <input type="text" id="inputField" maxlength="6" readonly>
     <div class="keypad">
-        <button class="key" onclick="enterDigit(1)">1</button>
-        <button class="key" onclick="enterDigit(2)">2</button>
-        <button class="key" onclick="enterDigit(3)">3</button>
-        <button class="key" onclick="enterDigit(4)">4</button>
-        <button class="key" onclick="enterDigit(5)">5</button>
-        <button class="key" onclick="enterDigit(6)">6</button>
-        <button class="key" onclick="enterDigit(7)">7</button>
-        <button class="key" onclick="enterDigit(8)">8</button>
-        <button class="key" onclick="enterDigit(9)">9</button>
+        <button class="key" onclick="enterDigit('1')">1</button>
+        <button class="key" onclick="enterDigit('2')">2</button>
+        <button class="key" onclick="enterDigit('3')">3</button>
+        <button class="key" onclick="enterDigit('4')">4</button>
+        <button class="key" onclick="enterDigit('5')">5</button>
+        <button class="key" onclick="enterDigit('6')">6</button>
+        <button class="key" onclick="enterDigit('7')">7</button>
+        <button class="key" onclick="enterDigit('8')">8</button>
+        <button class="key" onclick="enterDigit('9')">9</button>
         <button class="key" onclick="clearInput()">C</button>
-        <button class="key" onclick="enterDigit(0)">0</button>
+        <button class="key" onclick="enterDigit('0')">0</button>
         <button class="key" onclick="checkCode()">✔</button>
+        <button class="key" onclick="enterDigit('A')">A</button>
+        <button class="key" onclick="enterDigit('B')">B</button>
+        <button class="key" onclick="enterDigit('D')">D</button>
+        <button class="key" onclick="enterDigit('E')">E</button>
     </div>
     <p id="message"></p>
     
     <script>
-        const correctCodes = ["6927", "7043"]; // List of valid codes
+        const correctCodes = ["6213BD", "10DA03"]; // List of valid codes
         
         function enterDigit(digit) {
             let inputField = document.getElementById("inputField");
-            if (inputField.value.length < 4) {
+            if (inputField.value.length < 6) {
                 inputField.value += digit;
             }
         }
@@ -51,10 +55,10 @@
             let message = document.getElementById("message");
             
             if (correctCodes.includes(inputField)) {
-                message.textContent = "✅ Access Granted! The lab is unlocked!";
+                message.textContent = "✅ Access Granted! The Secret Lab is up ahead!";
                 message.style.color = "green";
             } else {
-                message.textContent = "❌ Incorrect Code. Try Again!";
+                message.textContent = "❌ Incorrect Code. The Secret Lab will enter autodestruction mode now.";
                 message.style.color = "red";
             }
         }
