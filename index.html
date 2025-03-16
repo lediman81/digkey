@@ -6,15 +6,15 @@
     <title>Digital Keypad Escape</title>
     <style>
         body { text-align: center; font-family: Arial, sans-serif; }
-        .keypad { display: grid; grid-template-columns: repeat(4, 60px); gap: 10px; justify-content: center; }
+        .keypad { display: grid; grid-template-columns: repeat(3, 60px); gap: 10px; justify-content: center; }
         .key { width: 60px; height: 60px; font-size: 24px; cursor: pointer; }
         #inputField { font-size: 24px; text-align: center; width: 180px; margin-bottom: 10px; }
         #message { font-size: 20px; margin-top: 10px; color: green; }
     </style>
 </head>
 <body>
-    <h2>Enter the 4-Digit Code to Unlock the Lab</h2>
-    <input type="text" id="inputField" maxlength="4" readonly>
+    <h2>Enter the 6-Character Code to Unlock the Lab</h2>
+    <input type="text" id="inputField" maxlength="6" readonly>
     <div class="keypad">
         <button class="key" onclick="enterDigit('1')">1</button>
         <button class="key" onclick="enterDigit('2')">2</button>
@@ -30,8 +30,8 @@
         <button class="key" onclick="checkCode()">✔</button>
         <button class="key" onclick="enterDigit('A')">A</button>
         <button class="key" onclick="enterDigit('B')">B</button>
+        <button class="key" onclick="enterDigit('C')">C</button>
         <button class="key" onclick="enterDigit('D')">D</button>
-        <button class="key" onclick="enterDigit('E')">E</button>
     </div>
     <p id="message"></p>
     
@@ -58,7 +58,7 @@
                 message.textContent = "✅ Access Granted! The Secret Lab is up ahead!";
                 message.style.color = "green";
             } else {
-                message.textContent = "❌ Incorrect Code. The Secret Lab will enter autodestruction mode now!";
+                message.textContent = "❌ Incorrect Code. The Secret Lab will enter autodestruction mode now.";
                 message.style.color = "red";
             }
         }
